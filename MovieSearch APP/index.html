@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="./js/controller.js"></script>
+    <!-- <script src="index.js"></script> -->
+
+    <title>SearchMovie APP</title>
+  </head>
+  <body>
+    <header id="header">
+      <div>
+        <div class="logo-container">
+          <img src="./assets/movie.png" alt="" />
+          <h1 class="page-title">Filmara</h1>
+        </div>
+        <form action="">
+          <input type="text" placeholder="Pretraži..." />
+          <button type="submit" class="search-btn">Pretraži</button>
+        </form>
+      </div>
+    </header>
+    <main id="main">
+      <section id="popular-movies"></section>
+      <section id="searched-movies"></section>
+      <div class="error-txt">
+        <p></p>
+      </div>
+    </main>
+    <footer id="footer">
+      <p>© 2026 Filmara</p>
+      <p>
+        Data provided by
+        <a href="https://www.themoviedb.org/" target="_blank">TMDB</a>
+      </p>
+    </footer>
+    <div class="pop-up">
+      <button class="pop-up__close">x</button>
+      <div class="pop-up__video"></div>
+    </div>
+  </body>
+</html>

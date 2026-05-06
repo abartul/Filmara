@@ -1,0 +1,228 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --overlay-bg-color: #000000f0;
+  --main-bg-color: rgb(14, 23, 42);
+  --sec-bg-color: rgb(51, 62, 77);
+  --btn-bg-color: rgb(51, 118, 241);
+  --white-color: #ffffff;
+  --movie-bg-desc-color: #000000c7;
+  --error-color: rgb(226, 22, 22);
+}
+
+body {
+  font-size: 62.5%;
+  background-color: var(--main-bg-color);
+  position: relative;
+}
+/*Header*/
+#header,
+#footer {
+  max-width: 100%;
+  height: 10em;
+  background-color: var(--sec-bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#header > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  cursor: pointer;
+}
+
+h1 {
+  color: var(--white-color);
+  font-size: 3.1em;
+}
+
+input,
+.search-btn {
+  padding: 1em;
+  border-radius: 0.8em;
+  outline: none;
+  border: none;
+}
+
+.search-btn {
+  background-color: var(--btn-bg-color);
+  color: var(--white-color);
+  font-size: 1.4em;
+  text-transform: capitalize;
+  font-weight: 600;
+  cursor: pointer;
+}
+#main {
+  min-height: 20em;
+  position: relative;
+}
+/*POPULAR-MOVIES SECTION*/
+#popular-movies {
+  padding: 4em 2em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+  gap: 1em;
+  position: relative;
+}
+.movie {
+  height: 25em;
+  width: 20em;
+  border: 1px solid var(--white-color);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.movie img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.movie-info {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8em;
+  background-color: var(--movie-bg-desc-color);
+  color: var(--white-color);
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  right: 0;
+}
+
+.movie-info__title {
+  font-size: 1.6em;
+}
+
+.movie-info__desc {
+  font-size: 1.2em;
+}
+
+.movie-info__rating {
+  font-size: 1.4em;
+}
+
+.movie:hover .movie-info {
+  animation: movieDescUP 0.3s ease forwards;
+}
+
+/*Error message*/
+.error-txt {
+  position: absolute;
+  background-color: var(--white-color);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+  border-radius: 1em;
+  color: var(--error-color);
+  padding: 1.5em 1em;
+  display: none;
+  font-size: 2em;
+  font-weight: 600;
+  text-transform: capitalize;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+/*VIDEO POP-UP*/
+.pop-up {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 9999;
+  background-color: var(--overlay-bg-color);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.pop-up.active {
+  display: flex;
+}
+
+.pop-up__video {
+  width: 80%;
+  height: 80vh;
+}
+
+.pop-up__video iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.pop-up__close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  color: var(--white-color);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/*FOOTER*/
+
+#footer {
+  font-size: 1.8em;
+  gap: 1.5em;
+  flex-direction: column;
+}
+
+#footer a {
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+/*ANIMATIONS*/
+@keyframes movieDescUP {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+/*Mob version*/
+@media only screen and (max-width: 450px) {
+  #popular-movies {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #header {
+    min-height: 15em;
+  }
+
+  #header > div {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+  }
+}
